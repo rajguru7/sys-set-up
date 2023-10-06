@@ -1,0 +1,15 @@
+- name: telegram-monitor exists
+  stat:
+    path: "{{ personal }}/telegram-monitor"
+  register: telemonitor
+  tags:
+    - install
+    - personal-project
+- name: Personal Project telegram-monitor
+  ansible.builtin.git:
+    repo: 'git@github.com:rajguru7/telegram-monitor.git'
+    dest: "{{ personal }}/telegram-monitor"
+  tags:
+    - install
+    - personal-project
+  when: telemonitor.stat.exists == False

@@ -1,0 +1,66 @@
+- name: Ensure .ssh directory exists.
+  file:
+    path: "{{ key_path | dirname }}"
+    mode: 0700
+    state: directory
+
+- name: Check that the id_ed25519.pub file exists
+  stat:
+    path: "{{ key_path }}.pub"
+  register: stat_result
+
+- name: Create the file, if it doesnt exist already
+  file:
+    path: "{{ key_path }}.pub"
+    state: touch
+    mode: 0644
+  when: not stat_result.stat.exists
+
+- name: Retrieve public ssh key when signed in to 1Password
+  no_log: true
+  ansible.builtin.lineinfile:
+    path: "{{ key_path }}.pub"
+    line: "{{ lookup('community.general.onepassword', 'floating ssh', field='public_key', vault='Personal',subdomain='my', master_password=vault_master_password, username=vault_username, secret_key=vault_secret_key) }}"
+
+- name: Create the file, if it doesnt exist already
+  file:
+    path: "{{ key_path }}"
+    state: touch
+    mode: 0600
+  when: not stat_result.stat.exists
+  
+- name: Create the file, if it doesnt exist already
+  file:
+    path: "{{ key_path | dirname }}/temp"
+    state: touch
+    mode: 0600
+  when: not stat_result.stat.exists
+
+- name: Retrieve private ssh key when signed in to 1Password
+  no_log: true
+  ansible.builtin.lineinfile:
+    path: "{{ key_path | dirname }}/temp"
+    line: "{{ lookup('community.general.onepassword', 'floating ssh', field='private_key', vault='Personal',subdomain='my', master_password=vault_master_password, username=vault_username, secret_key=vault_secret_key) }}"
+
+- name: convert ssh private key to openssh format
+  no_log: true
+  shell: "./ed25519_to_ossh.sh {{ key_path | dirname }}/temp > {{ key_path }}"
+
+- name: add github to known hosts
+  shell: "ssh-keyscan github.com >> {{ key_path | dirname }}/known_hosts"
+
+#- name: Retrieve password for HAL when not signed in to 1Password
+#  ansible.builtin.debug:
+#    var: lookup('community.general.onepassword',
+#                'HAL 9000',
+#                subdomain='Discovery',
+#                master_password=vault_master_password)
+#
+#- name: Retrieve password for HAL when never signed in to 1Password
+#  ansible.builtin.debug:
+#    var: lookup('community.general.onepassword',
+#                'HAL 9000',
+#                subdomain='Discovery',
+#                master_password=vault_master_password,
+#                username='tweety@acme.com',
+#                secret_key=vault_secret_key)

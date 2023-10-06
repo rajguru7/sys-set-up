@@ -1,0 +1,13 @@
+- name: Install vim
+  become: true
+  apt: name=vim-gtk3
+  tags: &tags_for_vim_tasks [ 'install', 'productivity', 'dotfiles', 'vim' ]
+- name: Check that the somefile.conf exists
+  stat:
+    path: /home/killua/.vim/autoload/plug.vim
+  register: oh_my_stats
+  tags: *tags_for_vim_tasks 
+- name: vim-plug
+  shell: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  tags: *tags_for_vim_tasks
+  when: oh_my_stats.stat.exists == False

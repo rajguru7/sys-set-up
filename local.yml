@@ -1,0 +1,55 @@
+- hosts: localhost
+  vars_prompt:
+    - name: vault_username
+      prompt: 1password username?
+      private: false
+    - name: vault_secret_key
+      prompt: 1password secret key?
+    - name: vault_master_password
+      prompt: 1password master password?
+  vars:
+    key_path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    personal: "{{ lookup('env', 'HOME') }}/personal"
+  pre_tasks:
+  - name: Update Apt
+    become: true
+    apt:
+      force_apt_get: true
+      update_cache: true
+      state: present
+    tags:
+      - pw-manager
+      - install
+      - install-yq
+      - neovim
+      - set-ssh
+      - wsl
+  tasks:
+    - import_tasks: tasks/pw-manager.yaml
+    - import_tasks: tasks/ssh-setup.yaml
+      tags:
+        - set-ssh
+    - import_tasks: tasks/git-setup.yaml
+    - import_tasks: tasks/core-setup.yaml
+    - import_tasks: tasks/wsl-setup.yaml
+      tags:
+        - wsl
+    - import_tasks: tasks/zsh-setup.yaml
+      tags:
+        - neovim
+    - import_tasks: tasks/personal-projects.yaml
+    - import_tasks: tasks/vim-setup.yaml
+    - import_tasks: tasks/nvim-setup.yaml
+      tags:
+        - neovim
+    - import_tasks: tasks/brave.yaml
+    - import_tasks: tasks/dotfiles.yaml
+    #- import_tasks: tasks/ssh.yaml #(will not use now, will use separate key per host, will use script to put inside container from host for now)
+    #- import_tasks: tasks/git-setup.yaml
+    #- import_tasks: tasks/core-setup.yaml
+    #- import_tasks: tasks/zsh-setup.yaml
+    #- import_tasks: tasks/personal-projects.yaml
+    #- import_tasks: tasks/vim-setup.yaml
+    #- import_tasks: tasks/brave.yaml
+    #- import_tasks: tasks/dotfiles.yaml #(requires zsh)
+    #- import_tasks: tasks/productivity-tools.yaml

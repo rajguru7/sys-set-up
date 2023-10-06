@@ -1,0 +1,31 @@
+- name: install terminal tools
+  become: true
+  apt:
+    name: [ wget,zip,unzip,xclip,jq,fd-find,fzf,tmux,python3-pip,snapd,curl ]
+  tags:
+    - install
+- name: install yq
+  become: true
+  community.general.snap:
+    name:
+      - yq
+  tags:
+    - install-yq #snap installs don't work in docker
+- name: install network tools
+  become: true
+  apt:
+    name: [ wireshark ]
+  tags:
+    - install
+- name: install documentation tools
+  become: true
+  apt:
+    name: [ pandoc,texlive,librsvg2-bin,tldr ]
+  tags:
+    - install
+- name: install neovim prereqs
+  become: true
+  apt:
+    name: [ ninja-build,gettext,cmake ] #curl, unzip already done
+  tags:
+    - neovim

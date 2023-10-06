@@ -1,0 +1,48 @@
+- name: kdenlive ppa (ppa:kdenlive/kdenlive-stable)
+  become: true
+  apt_repository:
+    repo: ppa:kdenlive/kdenlive-stable
+    state: present
+    update_cache: True
+  tags:
+    - install
+    - graphical
+    - productivity
+
+- name: shutter ppa (ppa:linuxuprising/shutter)
+  become: true
+  apt_repository:
+    repo: ppa:linuxuprising/shutter
+    state: present
+    update_cache: True
+  tags:
+    - install
+    - graphical
+    - productivity
+
+- name: Install graphical software
+  become: true
+  apt:
+    name: [ "kdenlive", "gimp", "screenkey", "shutter" ]
+  tags:
+    - install
+    - graphical
+    - productivity
+
+- name: Install documentation software
+  become: true
+  apt:
+    name: [ "jq", "pandoc", "texlive",  ]
+  tags:
+    - install
+    - productivity
+    - document
+
+- name: Install documentation software
+  become: true
+  snap:
+    name: [ "yq" ]
+  tags:
+    - install
+    - productivity
+    - document

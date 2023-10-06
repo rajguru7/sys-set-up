@@ -1,0 +1,7 @@
+- name: install wsl helper tools
+  become: true
+  apt:
+    name: [ wslu, dos2unix ]
+- name: fix wsl clock
+  become: true
+  shell: ./tools/wsl-time-fix
