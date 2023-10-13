@@ -19,11 +19,12 @@
       state: present
     tags:
       - pw-manager
+      - set-ssh
       - install
       - install-yq
-      - neovim
-      - set-ssh
+      - github-cli
       - wsl
+      - neovim
   tasks:
     - import_tasks: tasks/pw-manager.yaml
     - import_tasks: tasks/ssh-setup.yaml
@@ -31,6 +32,9 @@
         - set-ssh
     - import_tasks: tasks/git-setup.yaml
     - import_tasks: tasks/core-setup.yaml
+    - import_tasks: tasks/gh-cli.yaml
+      tags:
+       - github-cli
     - import_tasks: tasks/wsl-setup.yaml
       tags:
         - wsl
@@ -44,12 +48,15 @@
         - neovim
     - import_tasks: tasks/brave.yaml
     - import_tasks: tasks/dotfiles.yaml
-    #- import_tasks: tasks/ssh.yaml #(will not use now, will use separate key per host, will use script to put inside container from host for now)
+    - import_tasks: tasks/python-setup.yaml
+      tags:
+        - python
+    #- import_tasks: tasks/ssh.yaml 
     #- import_tasks: tasks/git-setup.yaml
     #- import_tasks: tasks/core-setup.yaml
     #- import_tasks: tasks/zsh-setup.yaml
     #- import_tasks: tasks/personal-projects.yaml
     #- import_tasks: tasks/vim-setup.yaml
     #- import_tasks: tasks/brave.yaml
-    #- import_tasks: tasks/dotfiles.yaml #(requires zsh)
+    #- import_tasks: tasks/dotfiles.yaml
     #- import_tasks: tasks/productivity-tools.yaml

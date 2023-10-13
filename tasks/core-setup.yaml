@@ -1,7 +1,7 @@
 - name: install terminal tools
   become: true
   apt:
-    name: [ wget,zip,unzip,xclip,jq,fd-find,fzf,tmux,python3-pip,snapd,curl ]
+    name: [ wget,zip,unzip,xclip,jq,fd-find,fzf,tmux,snapd,curl ]
   tags:
     - install
 - name: install yq
@@ -21,6 +21,10 @@
   become: true
   apt:
     name: [ pandoc,texlive,librsvg2-bin,tldr ]
+  tags:
+    - install
+- name: update tldr offline cache
+  shell: "tldr --update"
   tags:
     - install
 - name: install neovim prereqs

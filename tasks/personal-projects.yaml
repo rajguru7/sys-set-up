@@ -13,3 +13,18 @@
     - install
     - personal-project
   when: telemonitor.stat.exists == False
+- name: mkdocs-puml-mod exists
+  stat:
+    path: "{{ personal }}/mkdocs-puml-mod"
+  register: mkpuml
+  tags:
+    - install
+    - personal-project
+- name: Personal Project mkdocs-puml-mod
+  ansible.builtin.git:
+    repo: 'git@github.com:rajguru7/mkdocs-puml-mod.git'
+    dest: "{{ personal }}/mkdocs-puml-mod"
+  tags:
+    - install
+    - personal-project
+  when: mkpuml.stat.exists == False

@@ -4,4 +4,4 @@
     name: [ wslu, dos2unix ]
 - name: fix wsl clock
   become: true
-  shell: ./tools/wsl-time-fix
+  shell:  "{{ lookup('env', 'HOME') }}/personal/sys-set-up/tools/wsl-time-fix"

@@ -4,7 +4,7 @@
   tags: &tags_for_vim_tasks [ 'install', 'productivity', 'dotfiles', 'vim' ]
 - name: Check that the somefile.conf exists
   stat:
-    path: /home/killua/.vim/autoload/plug.vim
+    path: "{{ lookup('env', 'HOME') }}/.vim/autoload/plug.vim"
   register: oh_my_stats
   tags: *tags_for_vim_tasks 
 - name: vim-plug

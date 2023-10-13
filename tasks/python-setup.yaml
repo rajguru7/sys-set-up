@@ -1,0 +1,4 @@
+- name: install pyenv
+  shell: "curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash"
+- name: install python 3.12.0 and set as global
+  shell: pyenv install 3.12.0 && pyenv global 3.12.0
