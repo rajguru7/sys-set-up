@@ -26,5 +26,5 @@
         repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
         dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     - name: include plugins in zshrc
-      shell: "sed -ie 's/plugins=(git/plugins=(git 1password zsh-autosuggestions zsh-syntax-highlighting/' {{ lookup('env', 'HOME') }}/.zshrc"
+      shell: "sed -ie 's/plugins=(git/plugins=(git gh 1password zsh-autosuggestions zsh-syntax-highlighting/' {{ lookup('env', 'HOME') }}/.zshrc"
   tags: *tags_for_zsh_tasks

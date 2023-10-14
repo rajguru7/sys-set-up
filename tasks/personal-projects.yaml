@@ -1,7 +1,7 @@
 - name: telegram-monitor exists
   stat:
     path: "{{ personal }}/telegram-monitor"
-  register: telemonitor
+  register: dir-exists
   tags:
     - install
     - personal-project
@@ -12,11 +12,11 @@
   tags:
     - install
     - personal-project
-  when: telemonitor.stat.exists == False
+  when: dir-exists.stat.exists == False
 - name: mkdocs-puml-mod exists
   stat:
     path: "{{ personal }}/mkdocs-puml-mod"
-  register: mkpuml
+  register: dir-exists
   tags:
     - install
     - personal-project
@@ -27,4 +27,80 @@
   tags:
     - install
     - personal-project
-  when: mkpuml.stat.exists == False
+  when: dir-exists.stat.exists == False
+- name: netsec exists
+  stat:
+    path: "{{ learn }}/netsec"
+  register: dir-exists
+  tags:
+    - install
+    - personal-project
+- name: learn netsec
+  ansible.builtin.git:
+    repo: 'git@github.com:rajguru7/netsec.git'
+    dest: "{{ learn }}/netsec"
+  tags:
+    - install
+    - personal-project
+  when: dir-exists.stat.exists == False
+- name: networks exists
+  stat:
+    path: "{{ learn }}/networks"
+  register: dir-exists
+  tags:
+    - install
+    - personal-project
+- name: learn networks
+  ansible.builtin.git:
+    repo: 'git@github.com:rajguru7/networks.git'
+    dest: "{{ learn }}/networks"
+  tags:
+    - install
+    - personal-project
+  when: dir-exists.stat.exists == False
+- name: isp exists
+  stat:
+    path: "{{ learn }}/isp"
+  register: dir-exists
+  tags:
+    - install
+    - personal-project
+- name: Personal Project isp
+  ansible.builtin.git:
+    repo: 'git@github.com:rajguru7/isp.git'
+    dest: "{{ learn }}/isp"
+  tags:
+    - install
+    - personal-project
+  when: dir-exists.stat.exists == False
+- name: ctf exists
+  stat:
+    path: "{{ learn }}/ctf"
+  register: dir-exists
+  tags:
+    - install
+    - personal-project
+- name: Personal Project ctf
+  ansible.builtin.git:
+    repo: 'git@github.com:rajguru7/ctf.git'
+    dest: "{{ learn }}/ctf"
+  tags:
+    - install
+    - personal-project
+  when: dir-exists.stat.exists == False
+- name: notes exists
+  stat:
+    path: "{{ notes }}"
+  register: dir-exists
+  tags:
+    - install
+    - personal-project
+- name: Personal Project notes
+  ansible.builtin.git:
+    repo: 'git@github.com:rajguru7/notes.git'
+    dest: "{{ notes }}"
+  tags:
+    - install
+    - personal-project
+  when: dir-exists.stat.exists == False
+

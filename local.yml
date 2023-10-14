@@ -10,6 +10,8 @@
   vars:
     key_path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
+    learn: "{{ lookup('env', 'HOME') }}/learn"
+    notes: "{{ lookup('env', 'HOME') }}/notes"
   pre_tasks:
   - name: Update Apt
     become: true
