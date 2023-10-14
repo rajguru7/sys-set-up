@@ -8,6 +8,12 @@ Only proper projects which require VCS.
 
 Files which should not be public will be transferred through external storage device or NAS/SMB/FTP.
 
+
+## Learnings
+
+The env in ansible is of the user with which you run ansible.
+If you use become in some task. If you lookup the env in that task the environment variables will not be of root if you didn't run ansible as root.
+
 Nice content <https://missing.csail.mit.edu/2020/security/>
 
 ## References
