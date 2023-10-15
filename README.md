@@ -51,13 +51,13 @@ Files which should not be public will be transferred through external storage de
 ---
 
 **tldr**
-The tldr client installed using apt is not the official one. Also it has update issues.[[7]][7]
+The tldr client installed using apt is not the official one. Also it has update issues.[[7]](ext7)
 It manually installs gh repo in ~/.local/share to update. Current apt tldr client is referencing master branch which has been moved to main.
 Will use pip to install as it is official.
 
 ## Acknowledgements
 
-Thanks to @thePrimeagen for his youtube vides and the course on [frontend masters][https://frontendmasters.com/courses/developer-productivity/]. Check out his set up at <https://github.com/ThePrimeagen/ansible>
+Thanks to @ThePrimeagen for his youtube videos and the course on [frontend masters](https://frontendmasters.com/courses/developer-productivity/). Check out his set up at <https://github.com/ThePrimeagen/ansible>
 
 ## Learnings
 
@@ -70,10 +70,18 @@ you need to source zshrc when running a script if you want aliases, variables to
 
 ## References
 
-[1]: https://www.redhat.com/sysadmin/ansible-playbooks-secrets
-[2]: https://docs.ansible.com/ansible/latest/collections/community/general/onepassword_lookup.html#ansible-collections-community-general-onepassword-lookup-parameter-subdomain
-[3]: https://stackoverflow.com/questions/35654286/how-to-check-if-a-file-exists-in-ansible
-[4]: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_prompts.html
-[5]: https://security.stackexchange.com/questions/267711/how-can-i-convert-an-ed25519-key-in-pkcs8-to-openssh-private-key-format (convert ssh key format)
-[6]: https://github.com/microsoft/WSL/issues/8204#issuecomment-1338334154 (fix wsl time issue)
-[7]: https://groups.google.com/g/linux.debian.bugs.dist/c/t1U4XLMUT7Y
+[1] <https://www.redhat.com/sysadmin/ansible-playbooks-secrets>  
+[2] <https://docs.ansible.com/ansible/latest/collections/community/general/onepassword_lookup.html#ansible-collections-community-general-onepassword-lookup-parameter-subdomain>  
+[3] <https://stackoverflow.com/questions/35654286/how-to-check-if-a-file-exists-in-ansible>  
+[4] <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_prompts.html>  
+[5] <https://security.stackexchange.com/questions/267711/how-can-i-convert-an-ed25519-key-in-pkcs8-to-openssh-private-key-format> (convert ssh key format)  
+[6] <https://github.com/microsoft/WSL/issues/8204#issuecomment-1338334154> (fix wsl time issue)  
+[7] <https://groups.google.com/g/linux.debian.bugs.dist/c/t1U4XLMUT7Y>  
+
+[ext1]: https://www.redhat.com/sysadmin/ansible-playbooks-secrets
+[ext2]: https://docs.ansible.com/ansible/latest/collections/community/general/onepassword_lookup.html#ansible-collections-community-general-onepassword-lookup-parameter-subdomain
+[ext3]: https://stackoverflow.com/questions/35654286/how-to-check-if-a-file-exists-in-ansible
+[ext4]: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_prompts.html
+[ext5]: https://security.stackexchange.com/questions/267711/how-can-i-convert-an-ed25519-key-in-pkcs8-to-openssh-private-key-format (convert ssh key format)
+[ext6]: https://github.com/microsoft/WSL/issues/8204#issuecomment-1338334154 (fix wsl time issue)
+[ext7]: https://groups.google.com/g/linux.debian.bugs.dist/c/t1U4XLMUT7Y
