@@ -5,6 +5,12 @@ sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update -y
 sudo apt-get install -y curl git software-properties-common ansible
 
-echo "ansible-playbook -t install -t set-ssh -t brave -t wsl -t install-yq -t neovim -t github-cli -t docker -t python -t java local.yml --ask-become-pass"
+if [ "$1" = complete ]; then
+    ansible-playbook -t install -t set-ssh -t brave -t wsl -t install-yq -t neovim -t github-cli -t docker -t python -t java local.yml --ask-become-pass
+else
+    echo "ansible-playbook -t install -t set-ssh -t brave -t wsl -t install-yq -t neovim -t github-cli -t docker -t python -t java local.yml --ask-become-pass"
+fi
+
+echo "for private data connect ssd and download private directories(finance,work) from ssd using below command in zsh:\nwsl-backupdisk.bash download"
 ## pull ansible
 #sudo ansible-pull -U https://github.com/rajguru7/sys-set-up.git

@@ -1,6 +1,46 @@
 # Automated set up of device
 
-## Repo
+> Automation of my device setup
+
+It installs:
+1. All the required libraries.
+2. All the tools
+3. All my github repos
+
+To set up new system:
+
+```bash
+mkdir personal && cd personal
+git clone https://github.com/rajguru7/sys-set-up.git
+cd sys-set-up
+
+#for complete install
+#./ansible-run complete
+
+#for custom install
+#./ansible-run
+#and then choose required tags
+
+#once done connect ssd and download private directories(finance,work) from ssd
+#wsl-backupdisk.bash download
+```
+
+**This is tested on Ubuntu 22.04**
+
+Requirements for complete install:
+1. Needs 1password account for downloading private github ssh keys
+2. Make sure you have added your ssh keys to 1password
+3. Edit tasks/ssh-setup.yaml with your 1password vault, domain and ssh key name.
+
+If ssh set up is not required or if you don't have 1password:
+1. do a custom install
+2. remove set-ssh tag for custom install
+3. add your ssh keys manually or make sure you use http git url to pull your personal projects and dotfiles repos.
+
+
+---
+
+## Public 
 
 Only proper projects which require VCS.
 
@@ -8,11 +48,16 @@ Only proper projects which require VCS.
 
 Files which should not be public will be transferred through external storage device or NAS/SMB/FTP.
 
+---
+
 **tldr**
 The tldr client installed using apt is not the official one. Also it has update issues.[[7]][7]
 It manually installs gh repo in ~/.local/share to update. Current apt tldr client is referencing master branch which has been moved to main.
 Will use pip to install as it is official.
 
+## Acknowledgements
+
+Thanks to @thePrimeagen for his youtube vides and the course on [frontend masters][https://frontendmasters.com/courses/developer-productivity/]. Check out his set up at <https://github.com/ThePrimeagen/ansible>
 
 ## Learnings
 
