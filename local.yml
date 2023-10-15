@@ -27,6 +27,8 @@
       - github-cli
       - wsl
       - neovim
+      - python
+      - docker
   tasks:
     - import_tasks: tasks/pw-manager.yaml
     - import_tasks: tasks/ssh-setup.yaml
@@ -53,12 +55,6 @@
     - import_tasks: tasks/python-setup.yaml
       tags:
         - python
-    #- import_tasks: tasks/ssh.yaml 
-    #- import_tasks: tasks/git-setup.yaml
-    #- import_tasks: tasks/core-setup.yaml
-    #- import_tasks: tasks/zsh-setup.yaml
-    #- import_tasks: tasks/personal-projects.yaml
-    #- import_tasks: tasks/vim-setup.yaml
-    #- import_tasks: tasks/brave.yaml
-    #- import_tasks: tasks/dotfiles.yaml
-    #- import_tasks: tasks/productivity-tools.yaml
+    - import_tasks: tasks/docker-setup.yaml
+      tags:
+        - docker

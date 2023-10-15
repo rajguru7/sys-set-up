@@ -1,0 +1,10 @@
+- name: Install docker
+  become: true
+  apt:
+    name: docker.io
+- name: Enable docker service
+  become: true
+  shell: systemctl enable docker --now
+- name: add user to docker group
+  become: true
+  shell: "usermod -aG docker {{ lookup('env', 'USER') }}"
