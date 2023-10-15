@@ -2,7 +2,7 @@
   become: true
   apt: name=vim-gtk3
   tags: &tags_for_vim_tasks [ 'install', 'productivity', 'dotfiles', 'vim' ]
-- name: Check that the somefile.conf exists
+- name: Check that plug.vim exists
   stat:
     path: "{{ lookup('env', 'HOME') }}/.vim/autoload/plug.vim"
   register: oh_my_stats

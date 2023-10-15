@@ -7,4 +7,5 @@ sudo tee /etc/systemd/system/systemd-timesyncd.service.d/override.conf > /dev/nu
 [Unit]
 ConditionVirtualization=
 EOF
+sudo systemctl daemon-reload
 sudo systemctl start systemd-timesyncd

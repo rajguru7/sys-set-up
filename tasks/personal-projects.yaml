@@ -1,7 +1,7 @@
 - name: telegram-monitor exists
   stat:
     path: "{{ personal }}/telegram-monitor"
-  register: dir-exists
+  register: dir_exists
   tags:
     - install
     - personal-project
@@ -12,11 +12,11 @@
   tags:
     - install
     - personal-project
-  when: dir-exists.stat.exists == False
+  when: dir_exists.stat.exists == False
 - name: mkdocs-puml-mod exists
   stat:
     path: "{{ personal }}/mkdocs-puml-mod"
-  register: dir-exists
+  register: dir_exists
   tags:
     - install
     - personal-project
@@ -27,11 +27,11 @@
   tags:
     - install
     - personal-project
-  when: dir-exists.stat.exists == False
+  when: dir_exists.stat.exists == False
 - name: netsec exists
   stat:
     path: "{{ learn }}/netsec"
-  register: dir-exists
+  register: dir_exists
   tags:
     - install
     - personal-project
@@ -42,11 +42,11 @@
   tags:
     - install
     - personal-project
-  when: dir-exists.stat.exists == False
+  when: dir_exists.stat.exists == False
 - name: networks exists
   stat:
     path: "{{ learn }}/networks"
-  register: dir-exists
+  register: dir_exists
   tags:
     - install
     - personal-project
@@ -57,11 +57,11 @@
   tags:
     - install
     - personal-project
-  when: dir-exists.stat.exists == False
+  when: dir_exists.stat.exists == False
 - name: isp exists
   stat:
     path: "{{ learn }}/isp"
-  register: dir-exists
+  register: dir_exists
   tags:
     - install
     - personal-project
@@ -72,11 +72,11 @@
   tags:
     - install
     - personal-project
-  when: dir-exists.stat.exists == False
+  when: dir_exists.stat.exists == False
 - name: ctf exists
   stat:
     path: "{{ learn }}/ctf"
-  register: dir-exists
+  register: dir_exists
   tags:
     - install
     - personal-project
@@ -87,11 +87,11 @@
   tags:
     - install
     - personal-project
-  when: dir-exists.stat.exists == False
+  when: dir_exists.stat.exists == False
 - name: notes exists
   stat:
     path: "{{ notes }}"
-  register: dir-exists
+  register: dir_exists
   tags:
     - install
     - personal-project
@@ -102,5 +102,5 @@
   tags:
     - install
     - personal-project
-  when: dir-exists.stat.exists == False
+  when: dir_exists.stat.exists == False
 
