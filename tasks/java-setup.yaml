@@ -1,7 +1,6 @@
-- name: java installation
+- name: install java
   become: true
   apt:
-    update_cache: yes
-    install: default-jdk
+    name: default-jdk
   tags:
-  - development
+  - java
