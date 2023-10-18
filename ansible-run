@@ -14,6 +14,6 @@ else
     echo "ansible-playbook -t install -t set-ssh -t git-personal-xps -t brave -t wsl -t install-yq -t neovim -t github-cli -t docker -t python -t java local.yml --ask-become-pass"
 fi
 
-echo "for private data connect ssd and download private directories(finance,work) from ssd using below command in zsh:\nwsl-backupdisk.bash download"
+echo -e "for private data connect ssd and download private directories(finance,work) from ssd using below command in zsh:\nwsl-backupdisk.bash download"
 ## pull ansible
 #sudo ansible-pull -U https://github.com/rajguru7/sys-set-up.git
