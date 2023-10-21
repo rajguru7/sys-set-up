@@ -2,8 +2,8 @@
   git_config:
     name: user.email
     scope: global
-    value: "saurabhrajguru@xps.local"
-  tags:
+    value: "saurabhrajguru7@gmail.com" # can't keep random email as
+  tags:                                # contributions don't get counted
   - git-personal-xps
 - name: Git personal setup name
   git_config:
@@ -12,17 +12,3 @@
     value: "Saurabh Rajguru"
   tags:
   - git-personal-xps
-- name: Git personal setup email
-  git_config:
-    name: user.email
-    scope: global
-    value: "saurabhrajguru@mac-air.local"
-  tags:
-  - git-personal-mac-air
-- name: Git personal setup name
-  git_config:
-    name: user.name
-    scope: global
-    value: "Saurabh Rajguru"
-  tags:
-  - git-personal-mac-air

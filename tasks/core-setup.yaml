@@ -14,7 +14,7 @@
 - name: install network tools
   become: true
   apt:
-    name: [ wireshark ]
+    name: [ wireshark,traceroute,net-tools ]
   tags:
     - install
 - name: install documentation tools
