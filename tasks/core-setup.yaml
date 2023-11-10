@@ -1,22 +1,25 @@
 - name: install terminal tools
   become: true
   apt:
-    name: [ wget,tree,bat,zip,unzip,xclip,jq,fd-find,fzf,tmux,snapd,curl ]
+    name: [ wget,tree,bat,zip,unzip,xclip,jq,fd-find,fzf,tmux,curl,ripgrep ]
   tags:
     - install
+    - neovim
 - name: install yq
   become: true
   community.general.snap:
     name:
+      - snapd
       - yq
   tags:
     - install-yq #snap installs don't work in docker
 - name: install network tools
   become: true
   apt:
-    name: [ wireshark,traceroute,net-tools ]
+    name: [ wireshark,traceroute,net-tools,hping3 ]
   tags:
     - install
+    - network
 - name: install documentation tools
   become: true
   apt:

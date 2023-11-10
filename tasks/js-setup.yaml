@@ -4,3 +4,4 @@
     name: npm #required for pyright for now
   tags:
   - js
+  - nvim-lsp

@@ -4,3 +4,4 @@
     name: openjdk-19-jdk #jdtls requires Java 17 and above
   tags:
   - java
+  - nvim-lsp
