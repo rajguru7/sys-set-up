@@ -1,6 +1,6 @@
 - name: install java
   become: true
   apt:
-    name: default-jdk
+    name: openjdk-19-jdk #jdtls requires Java 17 and above
   tags:
   - java
