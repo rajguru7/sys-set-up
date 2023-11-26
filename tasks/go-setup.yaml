@@ -1,0 +1,7 @@
+- name: install go
+  become: true
+  community.general.snap:
+    name: go
+    classic: true
+  tags:
+    - go #snap installs don't work in docker

@@ -30,6 +30,7 @@
       - docker
       - python
       - java
+      - go
   tasks:
     - import_tasks: tasks/pw-manager.yaml
     - import_tasks: tasks/ssh-setup.yaml
@@ -62,3 +63,6 @@
     - import_tasks: tasks/java-setup.yaml
       tags:
         - java
+    - import_tasks: tasks/go-setup.yaml
+      tags:
+        - go

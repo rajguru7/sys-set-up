@@ -9,9 +9,9 @@ sudo apt-get install -y curl git software-properties-common ansible
 git remote set-url origin git@github.com:rajguru7/sys-set-up.git
 
 if [ "$1" = complete ]; then
-    ansible-playbook -t install -t set-ssh -t git-personal-xps -t brave -t wsl -t install-yq -t neovim -t github-cli -t docker -t python -t java local.yml --ask-become-pass
+    ansible-playbook -t install -t set-ssh -t git-personal-xps -t brave -t wsl -t install-yq -t neovim -t github-cli -t docker -t python -t java -t go local.yml --ask-become-pass
 else
-    echo "ansible-playbook -t install -t set-ssh -t git-personal-xps -t brave -t wsl -t install-yq -t neovim -t github-cli -t docker -t python -t java local.yml --ask-become-pass"
+    echo "ansible-playbook -t install -t set-ssh -t git-personal-xps -t brave -t wsl -t install-yq -t neovim -t github-cli -t docker -t python -t java -t go local.yml --ask-become-pass"
 fi
 
 echo -e "for private data connect ssd and download private directories(finance,work) from ssd using below command in zsh:\nwsl-backupdisk.bash download"

@@ -1,7 +1,16 @@
+- name: install sdkman
+  shell: 
+    cmd: "curl -s https://get.sdkman.io | bash"
+    chdir: "{{ lookup('env', 'HOME') }}"
+    executable: /usr/bin/zsh
+  tags:
+  - java
+  - nvim-lsp
 - name: install java
-  become: true
-  apt:
-    name: openjdk-19-jdk #jdtls requires Java 17 and above
+  shell:
+    cmd: source ~/.zshrc && sdk install java #jdtls requires Java 17 and above
+    chdir: "{{ lookup('env', 'HOME') }}"
+    executable: /usr/bin/zsh
   tags:
   - java
   - nvim-lsp
