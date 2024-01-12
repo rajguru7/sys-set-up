@@ -12,3 +12,25 @@
     value: "Saurabh Rajguru"
   tags:
   - git-personal-xps
+- name: Set Git commit signing
+  git_config:
+    name: commit.gpgsign
+    scope: global
+    value: "true"
+  tags:
+  - git-personal-xps
+- name: Set commit singing with ssh
+  git_config:
+    name: gpg.format
+    scope: global
+    value: "ssh"
+  tags:
+  - git-personal-xps
+- name: provide git with path to signing key
+  git_config:
+    name: user.signingkey
+    scope: global
+    value: "{{ key_path }}.pub"
+  tags:
+  - git-personal-xps
+
