@@ -5,6 +5,7 @@
   tags:
     - install
     - neovim
+    - kali
 - name: install yq
   become: true
   community.general.snap:
@@ -32,3 +33,4 @@
     name: [ ninja-build,gettext,cmake ] #curl, unzip already done
   tags:
     - neovim
+    - kali
