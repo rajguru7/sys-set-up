@@ -5,6 +5,7 @@
     - install
     - dotfiles
     - stow
+    - kali
 - name: Cloning .dotfiles
   ansible.builtin.git:
     repo: 'git@github.com:rajguru7/.dotfiles.git'
@@ -13,12 +14,6 @@
     update: yes
     accept_hostkey: yes
     version: main
-  tags:
-    - install
-    - dotfiles
-    - stow
-- name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && ./ubuntu
   tags:
     - install
     - dotfiles
@@ -32,4 +27,11 @@
     accept_hostkey: yes
     version: main
   tags:
+    - kali
+- name: Stow dotfiles
+  shell: cd $HOME/.dotfiles && ./ubuntu
+  tags:
+    - install
+    - dotfiles
+    - stow
     - kali
