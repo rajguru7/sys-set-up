@@ -33,4 +33,11 @@
     value: "{{ key_path }}.pub"
   tags:
   - git-personal-xps
+- name: set default branch name to main
+  git_config:
+    name: init.defaultBranch
+    scope: global
+    value: "main"
+  tags:
+  - git-personal-xps
 
