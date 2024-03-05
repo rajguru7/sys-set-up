@@ -18,9 +18,3 @@
     cmd: source ~/.zshrc && pipx install tldr
     chdir: "{{ lookup('env', 'HOME') }}"
     executable: /usr/bin/zsh
-- name: install npm for pyright
-  become: true
-  apt:
-    name: npm
-  tags:
-    - nvim-lsp

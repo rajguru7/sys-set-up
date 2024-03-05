@@ -1,7 +1,7 @@
-- name: install npm
-  become: true
-  apt:
-    name: npm #required for pyright for now
-  tags:
-  - js
-  - nvim-lsp
+- name: Install nvm
+  ansible.builtin.shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+- name: Install node
+  shell: nvm install node
