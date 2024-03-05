@@ -23,3 +23,13 @@
     - install
     - dotfiles
     - stow
+- name: Cloning .dotfiles with http
+  ansible.builtin.git:
+    repo: 'https://github.com/rajguru7/.dotfiles.git'
+    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: main
+  tags:
+    - kali

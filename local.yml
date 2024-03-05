@@ -47,11 +47,13 @@
     - import_tasks: tasks/zsh-setup.yaml
       tags:
         - neovim
+        - kali
     - import_tasks: tasks/personal-projects.yaml
     - import_tasks: tasks/vim-setup.yaml
     - import_tasks: tasks/nvim-setup.yaml
       tags:
         - neovim
+        - kali
     - import_tasks: tasks/brave.yaml
     - import_tasks: tasks/dotfiles.yaml
     - import_tasks: tasks/docker-setup.yaml
