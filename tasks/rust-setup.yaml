@@ -1,0 +1,7 @@
+- name: install rustup,rustc,cargo
+  shell: 
+    cmd: "curl https://sh.rustup.rs -sSf | sh"
+    chdir: "{{ lookup('env', 'HOME') }}"
+    executable: /usr/bin/zsh
+  tags:
+  - rust

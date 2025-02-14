@@ -24,7 +24,7 @@
 - name: install documentation tools
   become: true
   apt:
-    name: [ pandoc,texlive,librsvg2-bin ]
+    name: [ pandoc,texlive,librsvg2-bin,libsixel-bin ] #libsixel - image support in windows terminal
   tags:
     - install
 - name: install neovim prereqs

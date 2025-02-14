@@ -11,6 +11,7 @@
     key_path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
     learn: "{{ lookup('env', 'HOME') }}/learn"
+    ctf: "{{ lookup('env', 'HOME') }}/ctf"
     notes: "{{ lookup('env', 'HOME') }}/notes"
   pre_tasks:
   - name: Update Apt
@@ -49,17 +50,17 @@
         - neovim
         - kali
     - import_tasks: tasks/personal-projects.yaml
-    - import_tasks: tasks/vim-setup.yaml
+    # - import_tasks: tasks/vim-setup.yaml
     - import_tasks: tasks/nvim-setup.yaml
       tags:
         - neovim
         - kali
-    # - import_tasks: tasks/brave.yaml
+    # - import_tasks: tasks/brave.yaml # can use windows brave for wsl
     - import_tasks: tasks/dotfiles.yaml
-    - import_tasks: tasks/docker-setup.yaml
-      tags:
-        - docker
-    - import_tasks: tasks/js-setup.yaml
+    # - import_tasks: tasks/docker-setup.yaml # can use windows docker for wsl
+      # tags:
+      #   - docker
+    - import_tasks: tasks/js-setup.yaml # required for copilot
       tags:
         - js
         - python
@@ -68,9 +69,9 @@
       tags:
         - python
         - kali
-    - import_tasks: tasks/java-setup.yaml
-      tags:
-        - java
-    - import_tasks: tasks/go-setup.yaml
-      tags:
-        - go
+    # - import_tasks: tasks/java-setup.yaml
+    #   tags:
+    #     - java
+    # - import_tasks: tasks/go-setup.yaml # Install go manually as per official docs
+    #   tags:
+    #     - go

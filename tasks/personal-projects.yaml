@@ -28,54 +28,9 @@
     - install
     - personal-project
   when: dir_exists.stat.exists == False
-- name: netsec exists
-  stat:
-    path: "{{ learn }}/netsec"
-  register: dir_exists
-  tags:
-    - install
-    - personal-project
-- name: learn netsec
-  ansible.builtin.git:
-    repo: 'git@github.com:rajguru7/netsec.git'
-    dest: "{{ learn }}/netsec"
-  tags:
-    - install
-    - personal-project
-  when: dir_exists.stat.exists == False
-- name: networks exists
-  stat:
-    path: "{{ learn }}/networks"
-  register: dir_exists
-  tags:
-    - install
-    - personal-project
-- name: learn networks
-  ansible.builtin.git:
-    repo: 'git@github.com:rajguru7/networks.git'
-    dest: "{{ learn }}/networks"
-  tags:
-    - install
-    - personal-project
-  when: dir_exists.stat.exists == False
-- name: isp exists
-  stat:
-    path: "{{ learn }}/isp"
-  register: dir_exists
-  tags:
-    - install
-    - personal-project
-- name: Personal Project isp
-  ansible.builtin.git:
-    repo: 'git@github.com:rajguru7/isp.git'
-    dest: "{{ learn }}/isp"
-  tags:
-    - install
-    - personal-project
-  when: dir_exists.stat.exists == False
 - name: ctf exists
   stat:
-    path: "{{ learn }}/ctf"
+    path: "{{ ctf }}"
   register: dir_exists
   tags:
     - install
@@ -83,7 +38,7 @@
 - name: Personal Project ctf
   ansible.builtin.git:
     repo: 'git@github.com:rajguru7/ctf.git'
-    dest: "{{ learn }}/ctf"
+    dest: "{{ ctf }}"
   tags:
     - install
     - personal-project
