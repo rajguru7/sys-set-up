@@ -19,13 +19,13 @@
   tags:
     - pw-manager
     - set-ssh
-- name: install 1password
-  become: true
-  apt:
-    update_cache: true
-    name: 1password
-  tags:
-    - pw-client
+# - name: install 1password # client not required for wsl
+#   become: true
+#   apt:
+#     update_cache: true
+#     name: 1password
+#   tags:
+#     - pw-client
 - name: install 1password cli
   become: true
   apt: 
