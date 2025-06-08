@@ -1,7 +1,10 @@
 - name: Install nvm
-  ansible.builtin.shell: >
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-  args:
-    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+  shell:
+    cmd: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash"
+    chdir: "{{ lookup('env', 'HOME') }}"
+    executable: /usr/bin/zsh
 - name: Install node
-  shell: source ~/.zshrc && nvm install node
+  shell:
+    cmd: source ~/.zshrc && nvm install node
+    chdir: "{{ lookup('env', 'HOME') }}"
+    executable: /usr/bin/zsh
