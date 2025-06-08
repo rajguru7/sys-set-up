@@ -13,8 +13,3 @@
     cmd: source ~/.zshrc && pip install pipx
     chdir: "{{ lookup('env', 'HOME') }}"
     executable: /usr/bin/zsh
-- name: install tldr
-  shell:
-    cmd: source ~/.zshrc && pipx install tldr
-    chdir: "{{ lookup('env', 'HOME') }}"
-    executable: /usr/bin/zsh
